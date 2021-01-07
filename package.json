@@ -8,12 +8,6 @@
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@hamishmw/react-scripts-postcss": "4.0.0-mod1",
-    "@storybook/addon-a11y": "^6.1.10",
-    "@storybook/addon-actions": "^6.1.10",
-    "@storybook/addon-controls": "^6.1.10",
-    "@storybook/addon-toolbars": "^6.1.10",
-    "@storybook/preset-create-react-app": "^3.1.5",
-    "@storybook/react": "^6.1.10",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.5.0",
@@ -51,11 +45,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "reactSnap": {
-    "skipThirdPartyRequests": true,
-    "headless": true,
-    "crawl": true
   },
   "browserslist": {
     "production": [
