@@ -40,7 +40,7 @@ function Header(props) {
   const { menuOpen, dispatch } = useAppContext();
   const windowSize = useWindowSize();
   const headerRef = useRef();
-  const isMobile = windowSize.width <= media.mobile || windowSize.height <= 696;
+  const isMobile = windowSize.width <= media.mobile || windowSize.height <= 640;
 
   const handleMobileNavClick = () => {
     if (menuOpen) dispatch({ type: "toggleMenu" });

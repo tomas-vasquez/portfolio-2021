@@ -14,11 +14,6 @@ body {
   overflow-x: hidden;
 }
 
-/* ::selection {
-  background: rgb(var(--rgbAccent));
-  color: rgb(var(--rgbBlack));
-} */
-
 @keyframes fade-in {
   0% {
     opacity: 0;
@@ -59,35 +54,4 @@ body {
 .skip-to-main {
   color: rgb(var(--rgbBackground));
   z-index: 128;
-
-  /* &:focus {
-    padding: var(--spaceS) var(--spaceM);
-    position: fixed;
-    top: var(--spaceM);
-    left: var(--spaceM);
-    text-decoration: none;
-    font-weight: var(--fontWeightMedium);
-    line-height: 1;
-    box-shadow: 0 0 0 4px rgb(var(--rgbBackground)),
-      0 0 0 8px rgb(var(--rgbText));
-    outline: none;
-  } */
-
-  /* &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgb(var(--rgbPrimary));
-    clip-path: polygon(
-      0 0,
-      100% 0,
-      100% calc(100% - 8px),
-      calc(100% - 8px) 100%,
-      0 100%
-    );
-    z-index: -1;
-  } */
 }

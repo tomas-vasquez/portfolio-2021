@@ -22,7 +22,7 @@
     }
   }
 
-  @media (--mediaMobile), (max-height: 696px) {
+  @media (--mediaMobile), (max-height: 640px) {
     & {
       padding-left: var(--spaceOuter);
       padding-right: var(--spaceOuter);

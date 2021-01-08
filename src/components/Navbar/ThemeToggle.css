@@ -11,7 +11,7 @@
   margin-right: calc(var(--spaceS) * -1);
   transform: translate3d(0, 0, 0);
 
-  @media (--mediaMobile), (max-height: 696px) {
+  @media (--mediaMobile), (max-height: 640navbar__logopx) {
     &:not(.theme-toggle--mobile) {
       display: none;
     }

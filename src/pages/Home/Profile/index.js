@@ -41,7 +41,6 @@ const Profile = ({ id, visible, sectionRef }) => {
 
   return (
     <Section
-      className="profile"
       as="section"
       id={id}
       ref={sectionRef}

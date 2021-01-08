@@ -53,41 +53,37 @@ export default function Contact({ id }) {
             {/* <div dangerouslySetInnerHTML={contactMe.contactMeText} /> */}
           </Col>
         </Row>
-        <div
-          className="navbar__nav-icons"
-          style={{
-            flexDirection: "row",
-            textAlign: "center",
-          }}
-        >
-          <Transition in={inView} timeout={0}>
-            {() =>
-              navbar.socialLinks.map((icon, index) => (
-                <a
-                  style={{
-                    fontSize: "64px",
-                    border: "solid 2px",
-                    borderRadius: "50%",
-                    marginLeft: "10px",
-                    marginRight: "10px",
-                  }}
-                  key={index}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={icon.url}
-                  aria-label={`My ${icon.icon}`}
-                  className="navbar__nav-icon-link"
-                >
-                  <Icon
-                    icon={icon.icon}
+        <div className="d-flex">
+          <div className="mx-auto d-flex">
+            <Transition in={inView} timeout={0}>
+              {() =>
+                navbar.socialLinks.map((icon, index) => (
+                  <a
                     style={{
-                      fontSize: "20px",
+                      fontSize: "64px",
+                      border: "solid 2px",
+                      borderRadius: "50%",
+                      marginLeft: "10px",
+                      marginRight: "10px",
                     }}
-                  />
-                </a>
-              ))
-            }
-          </Transition>
+                    key={index}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={icon.url}
+                    aria-label={`My ${icon.icon}`}
+                    className="navbar__nav-icon-link"
+                  >
+                    <Icon
+                      icon={icon.icon}
+                      style={{
+                        fontSize: "20px",
+                      }}
+                    />
+                  </a>
+                ))
+              }
+            </Transition>
+          </div>
         </div>
       </Container>
     </div>

@@ -9,7 +9,7 @@
   z-index: 1024;
   display: none;
 
-  @media (--mediaMobile), (max-height: 696px) {
+  @media (--mediaMobile), (max-height: 640px) {
     & {
       display: flex;
     }
