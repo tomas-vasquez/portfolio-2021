@@ -14,7 +14,7 @@ module.exports = {
       {
         label: "linkedin",
         icon: "linkedin",
-        url: "https://www.linkedin.com/in/tomás-vásquez-8a45471b4",
+        url: "https://www.linkedin.com/in/-tomas-vasquez-",
       },
       {
         label: "Github",
@@ -54,7 +54,7 @@ module.exports = {
       {
         label: "linkedin",
         icon: "linkedin",
-        url: "https://www.linkedin.com/in/tomás-vásquez-8a45471b4",
+        url: "https://www.linkedin.com/in/tomas-vasquez",
       },
       {
         label: "Github",
