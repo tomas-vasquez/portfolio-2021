@@ -16,6 +16,7 @@ import {
   faCircle,
   faFile,
   faDownload,
+  faBars,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faGithub,
@@ -36,6 +37,9 @@ import {
 
 const getIcon = (icon) => {
   switch (icon) {
+    case "menu":
+      return faBars;
+
     case "download":
       return faDownload;
 

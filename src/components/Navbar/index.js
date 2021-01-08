@@ -51,11 +51,11 @@ function Header(props) {
       <AnchorLink
         className="navbar__logo"
         href="#intro"
-        aria-label="Tomás Vasquez, Designer"
+        aria-label="Tomas Vasquez, Developer"
         onClick={handleMobileNavClick}
         onMouseUp={blurOnMouseUp}
       >
-        <Monogram highlight />
+        <img src="./logo.png" alt="Tomas vasquez" />
       </AnchorLink>
 
       <NavToggle

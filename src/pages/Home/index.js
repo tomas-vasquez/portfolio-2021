@@ -58,11 +58,10 @@ const Home = () => {
   return (
     <div className="home">
       <Helmet>
-        <title>Tomás Vasquez | Designer + Developer</title>
+        <title>Tomas Vasquez</title>
         <meta
           name="description"
-          content="Portfolio of Tomás Vasquez – a digital designer working on web &amp; mobile
-          apps with a focus on motion and user experience design."
+          content="developer portfolio of Tomas Vasquez"
         />
         <link rel="prefetch" href={iphone11} as="fetch" crossorigin="" />
         <link rel="prefetch" href={macbookPro} as="fetch" crossorigin="" />
