@@ -1,7 +1,7 @@
 import { useRef, memo } from "react";
 
 import { Transition } from "react-transition-group";
-import Monogram from "components/Monogram";
+// import Monogram from "components/Monogram";
 import Icon from "components/Icon";
 import NavToggle from "./NavToggle";
 import ThemeToggle from "./ThemeToggle";
