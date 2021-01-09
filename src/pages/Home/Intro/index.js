@@ -2,10 +2,9 @@ import { Suspense, lazy, useEffect, useState, Fragment } from "react";
 import classNames from "classnames";
 import { TransitionGroup, Transition } from "react-transition-group";
 import DecoderText from "components/DecoderText";
-import { useInterval, usePrevious, useWindowSize } from "hooks";
+import { useInterval, usePrevious } from "hooks";
 import { reflow } from "utils/transition";
 import prerender from "utils/prerender";
-import { media } from "utils/style";
 import { ReactComponent as ArrowDown } from "assets/arrow-down.svg";
 import { tokens } from "components/ThemeProvider/theme";
 import Heading from "components/Heading";
@@ -21,7 +20,6 @@ const DisplacementSphere = lazy(() => import("pages/Home/DisplacementSphere"));
 function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
   const theme = useTheme();
   const [disciplineIndex, setDisciplineIndex] = useState(0);
-  const windowSize = useWindowSize();
   const prevTheme = usePrevious(theme);
 
   const disciplines = [...about.extraDisciplines];
@@ -76,6 +74,18 @@ function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
                 <DisplacementSphere />
               </Suspense>
             )}
+
+            <div
+              className={classNames(
+                "intro__mobile-scroll-indicator",
+                `intro__mobile-scroll-indicator--${status}`,
+                {
+                  "intro__mobile-scroll-indicator--hidden": scrollIndicatorHidden,
+                }
+              )}
+            >
+              <ArrowDown aria-hidden />
+            </div>
             <header className="intro__text">
               <h1
                 className={classNames("intro__name", `intro__name--${status}`)}
@@ -142,29 +152,6 @@ function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
                 </TransitionGroup>
               </Heading>
             </header>
-            {windowSize.width > media.tablet && (
-              <div
-                className={classNames(
-                  "intro__scroll-indicator",
-                  `intro__scroll-indicator--${status}`,
-                  { "intro__scroll-indicator--hidden": scrollIndicatorHidden }
-                )}
-                status={status}
-              />
-            )}
-            {windowSize.width <= media.tablet && (
-              <div
-                className={classNames(
-                  "intro__mobile-scroll-indicator",
-                  `intro__mobile-scroll-indicator--${status}`,
-                  {
-                    "intro__mobile-scroll-indicator--hidden": scrollIndicatorHidden,
-                  }
-                )}
-              >
-                <ArrowDown aria-hidden />
-              </div>
-            )}
           </Fragment>
         )}
       </Transition>

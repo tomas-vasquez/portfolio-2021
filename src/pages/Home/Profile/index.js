@@ -25,10 +25,9 @@ const ProfileText = ({ status }) => (
       <Text
         key={index}
         className={classNames(
-          "profile__description",
-          `profile__description--${status}`
+          "project-summary__description",
+          `project-summary__description--${status}`
         )}
-        size="l"
       >
         {text}
       </Text>
@@ -65,7 +64,7 @@ const Profile = ({ id, visible, sectionRef }) => {
                   id={titleId}
                 >
                   <DecoderText
-                    text="Hi there"
+                    text={about.aboutTitle}
                     start={status !== "exited"}
                     delay={0}
                   />
@@ -97,7 +96,7 @@ const Profile = ({ id, visible, sectionRef }) => {
                       `profile__tag-text--${status}`
                     )}
                   >
-                    About Me
+                    {about.aboutHeading}
                   </div>
                 </div>
                 <ProfileText status={status} titleId={titleId} />
@@ -107,10 +106,11 @@ const Profile = ({ id, visible, sectionRef }) => {
                     "profile__button",
                     `profile__button--${status}`
                   )}
-                  href="/contact"
-                  icon="send"
+                  target="blamk"
+                  href={about.cvFileUrl}
+                  icon="pdf"
                 >
-                  Send me a message
+                  {about.aboutMeButtomText2}
                 </Button>
               </Col>
             </Row>

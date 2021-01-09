@@ -1,15 +1,8 @@
 module.exports = {
-  defaultTitle: "tomas_dev",
-  defaultDescription:
-    "portafolio de projectos de un desarrollador o programador web en de bolivia",
-  author: {
-    name: `Tomás Vásquez`,
-  },
   banner: {
-    FirstName: "Tomás",
+    FirstName: "Tomas",
     MiddleName: "",
     LastName: "Vásquez",
-    devDesc: "| Freelancer | Web Developer | Designer | Vimlover ",
     socialLinks: [
       {
         label: "linkedin",
@@ -77,7 +70,7 @@ module.exports = {
   portfolio: {
     portfolioHeading: "projects",
     portfolioText:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "I love creating small projects that help me develop my skills, here I show you some projects that I made results from different courses and bootcamps in which I participated:",
     portfolioButtomText: "See all",
 
     portfolioHeading2: "repositories",
@@ -88,6 +81,8 @@ module.exports = {
     deploys: [
       {
         title: 'Open Academy "CRA"',
+        description:
+          "My first project, an online education platform using React, Express and MongoDB",
         image: process.env.PUBLIC_URL + "/projects/capture (7).jpg",
         linkRepo: "https://.com/tomasdetloging/OpenAcademy-ReactApp",
         linkDemo: "https://open-academy-react-app.vercel.app/",
@@ -101,12 +96,16 @@ module.exports = {
       },
       {
         title: "Open Portafolio",
+        description:
+          "My first professional portfolio created in 2019 using react with the gatsby.js framework",
         image: process.env.PUBLIC_URL + "/projects/capture (2).jpg",
         linkRepo: "https://.com/tomasdetloging/OpenPortafolio",
-        linkDemo: "",
+        linkDemo: "https://tomas-dev.vercel.app/",
       },
       {
         title: "Open Trello",
+        description:
+          "Small project that is a task application, I created it using React, Express and mongoDB",
         image: process.env.PUBLIC_URL + "/projects/capture (1).jpg",
         linkRepo: "https://.com/tomasdetloging/OpenTrello",
         linkDemo: "https://open-trello.vercel.app/",
@@ -117,41 +116,54 @@ module.exports = {
         linkRepo: "https://.com/tomasdetloging/",
         linkDemo: "https://particle-effect.vercel.app/",
       },
+      {
+        title: "Youtube Clone",
+        description:
+          "Project carried out in a workshop of React and connections to apis. ",
+        image: process.env.PUBLIC_URL + "/projects/capture (6).jpg",
+        linkRepo: "https://.com/tomasdetloging/Youtube-Clone",
+        linkDemo: "https://youtube-clone-inky.vercel.app/",
+      },
 
-      // {
-      //   title: 'Open Academy "NextJs"',
-      //   image: "capture (5)",
-      //   linkRepo: "https://.com/tomasdetloging/openacademy-nextjs",
-      //   linkDemo: "https://open-academy.vercel.app/",
-      // },
-      // {
-      //   title: "Youtube Clone",
-      //   image: "capture (6)",
-      //   linkRepo: "https://.com/tomasdetloging/Youtube-Clone",
-      //   linkDemo: "https://youtube-clone-inky.vercel.app/",
-      // },
+      {
+        title: "Simple Crud Postgres",
+        description:
+          "project carried out with some fellow students. A university admin using Express.js and Postgre.",
+        image: process.env.PUBLIC_URL + "/projects/capture (8).jpg",
+        linkRepo: "https://.com/tomasdetloging/simple-crud-postgre",
+        linkDemo: "https://simple-crud-postgree.herokuapp.com/",
+      },
 
-      // {
-      //   title: "Simple Crud Postgres",
-      //   image: "capture (8)",
-      //   linkRepo: "https://.com/tomasdetloging/simple-crud-postgre",
-      //   linkDemo: "https://simple-crud-postgree.herokuapp.com/",
-      // },
+      {
+        title: 'Open Academy "NextJs"',
+        description:
+          "The biggest project that I will carry out, an online education platform made with React and Next.js on the frontend; Express.js and MongoDB in the backend and Electron and React in the administrative tool.",
+        image: process.env.PUBLIC_URL + "/projects/capture (5).jpg",
+        linkRepo: "https://.com/tomasdetloging/openacademy-nextjs",
+        linkDemo: "https://open-academy.vercel.app/",
+      },
     ],
   },
   about: {
-    aboutHeading: "About me",
+    aboutHeading: "about me",
+    aboutTitle: "Who I am?",
     aboutDescription: [
       "My name is Tomás Vásquez and I am specialized in the development and programming of web applications.",
       "Began my academic training at the university studying Informatics Engineering and later studying self-taught in online education platforms, first in EDteam and then in Platzi.",
       "I am currently looking to insert working in the technology area. I am very self-taught and I constantly look for new challenges that challenge my abilities and help me grow.",
     ],
-    picUrl: "https://.com/tomasdetloging.png",
-    aboutMeButtomText: "See my CV",
-    aboutMeButtomText2: "Get my CV",
-    cvFileName: "tomasdetloging@gmail.com.pdf",
+    aboutMeButtomText2: "Download my CV",
+    cvFileUrl: process.env.PUBLIC_URL + "/tomasdetloging@gmail.com.pdf",
+
     discipline: "Developer",
-    extraDisciplines: ["Prototyper", "Animator", "Illustrator", "Modder"],
+    extraDisciplines: ["Designer", "Teacher", "Marketer", "Pianist"],
+    music: {
+      musicHeading: "some music",
+      musicTitle: " What music do I like?",
+      musicText:
+        "In my country, Bolivia, very beautiful music is heard ... but it is not well known in the world ... here are some songs",
+      musicTextFooter: "music is an art that comes from the soul ...",
+    },
   },
   blog: {
     blogHeading: "Posts",

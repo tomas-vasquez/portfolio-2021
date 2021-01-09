@@ -18,6 +18,7 @@ export default function Details({
     <Col
       md="12"
       lg="6"
+      xl="4"
       className="d-flex order-2 order-lg-0 mb-5 mt--5 mt-md-0"
     >
       <div className="my-auto">

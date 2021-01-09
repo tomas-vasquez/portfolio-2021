@@ -18,6 +18,7 @@ import {
   faDownload,
   faBars,
   faArrowRight,
+  faFilePdf,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faGithub,
@@ -38,6 +39,9 @@ import {
 
 const getIcon = (icon) => {
   switch (icon) {
+    case "pdf":
+      return faFilePdf;
+
     case "arrowRight":
       return faArrowRight;
 

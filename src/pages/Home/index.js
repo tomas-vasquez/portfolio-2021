@@ -11,6 +11,7 @@ import "./index.css";
 
 import Projects from "./Projects";
 import Contact from "./Contact";
+import Music from "./Music";
 
 const Home = () => {
   const [visibleSections, setVisibleSections] = useState([]);
@@ -78,6 +79,8 @@ const Home = () => {
         visible={visibleSections.includes(details.current)}
         id="details"
       />
+
+      <Music />
 
       <Projects id="projects" />
 

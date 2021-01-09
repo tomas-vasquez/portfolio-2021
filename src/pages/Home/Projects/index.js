@@ -61,7 +61,7 @@ export default function Projects({ id }) {
             key={index}
             visible={true}
             title={site.title}
-            description="Designing a platform to help educators build better online courseware"
+            description={site.description}
             buttonText="View Project"
             buttonLink={site.linkDemo}
             model={{
