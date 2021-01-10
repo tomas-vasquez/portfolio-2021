@@ -61,6 +61,14 @@ export default function Music() {
                   >
                     {about.music.musicText}
                   </Text>
+
+                  <div className="mb-4">
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: about.music.musicTextFooter,
+                      }}
+                    ></p>
+                  </div>
                 </div>
               )}
             </Transition>
@@ -69,14 +77,6 @@ export default function Music() {
             <App />
           </Col>
         </Row>
-        <div
-          className="mb-4"
-          style={{
-            textAlign: "center",
-          }}
-        >
-          {about.music.musicTextFooter}
-        </div>
       </Container>
     </div>
   );

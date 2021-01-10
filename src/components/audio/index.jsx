@@ -196,44 +196,13 @@ class Audio extends Component {
   }
 
   initEvents() {
-    document.addEventListener("keydown", (event) => {
+    document.addEventListener("visibilitychange", () => {
       const { audioContext } = this.state;
-      const key = event.which;
 
-      switch (key) {
-        // https://css-tricks.com/snippets/javascript/javascript-keycodes/
-        case 32:
-          /**
-           * key pressed: Spacebar
-           * pause or play song
-           */
-          if (audioContext.state === "suspended") {
-            audioContext.resume();
-            this.setState({ playing: true });
-          } else {
-            audioContext.suspend();
-            this.setState({ playing: false });
-          }
-          break;
-
-        case 78:
-          /**
-           * key pressed: N
-           * go to the next song
-           */
-          this.nextSong();
-          break;
-
-        case 66:
-          /**
-           * key pressed: B
-           * back to the prev song
-           */
-          this.prevSong();
-          break;
-
-        default:
-          break;
+      if (document.hidden) {
+        audioContext.suspend();
+      } else {
+        audioContext.resume();
       }
     });
   }
@@ -260,12 +229,12 @@ class Audio extends Component {
      */
     this.setState({ playingFullMusic });
 
-    console.log("call back data: ", workerResponse.data);
+    // console.log("call back data: ", workerResponse.data);
 
     switch (actionType) {
       case "load":
         this.setState({ workerBuffer: responseBuffer }, () => {
-          console.log("start decode audio");
+          // console.log("start decode audio");
           audioContext.decodeAudioData(
             responseBuffer,
             (buffer) => {
@@ -277,7 +246,7 @@ class Audio extends Component {
 
               currentSource.buffer = buffer;
               this.setState({ currentSource }, () => {
-                console.log("audio decoded and starting music");
+                // console.log("audio decoded and starting music");
                 this.playSound();
                 audioLoadOffsetTime =
                   (new Date() - audioContextCreatedTime) / 1000;
@@ -332,14 +301,14 @@ class Audio extends Component {
               });
 
               this.setState({ currentSource }, () => {
-                console.log(
-                  "audio decoded and starting music from stream - full song loaded"
-                );
-                const offset = audioContext.currentTime - audioLoadOffsetTime;
-                console.log({
-                  offset,
-                  duration: currentSource.buffer.duration,
-                });
+                // console.log(
+                //   "audio decoded and starting music from stream - full song loaded"
+                // );
+                // const offset = audioContext.currentTime - audioLoadOffsetTime;
+                // console.log({
+                //   offset,
+                //   duration: currentSource.buffer.duration,
+                // });
 
                 this.setState({ audioContextCreatedTime });
               });
@@ -405,7 +374,7 @@ class Audio extends Component {
     const { hasStreamSupport, threadInUse, playingFullMusic } = this.state;
 
     if (hasStreamSupport) {
-      console.log("fetch and stream");
+      // console.log("fetch and stream");
       if (threadInUse === "worker") {
         this.audioWorker.postMessage({
           type: "audio",
@@ -499,7 +468,7 @@ class Audio extends Component {
         return response.arrayBuffer();
       })
       .then((responseBuffer) => {
-        console.log("start decode audio");
+        // console.log("start decode audio");
         audioContext.decodeAudioData(
           responseBuffer,
           (buffer) => {
@@ -511,7 +480,7 @@ class Audio extends Component {
 
             currentSource.buffer = buffer;
             this.setState({ currentSource }, () => {
-              console.log("audio decoded and starting music");
+              // console.log("audio decoded and starting music");
               this.playSound();
               audioLoadOffsetTime =
                 (new Date() - audioContextCreatedTime) / 1000;
@@ -551,13 +520,13 @@ class Audio extends Component {
               if (!params.all) {
                 if (params.amount) {
                   if (params.amount < total && loaded >= params.amount) {
-                    console.log(`Close stream frag - amount`);
+                    // console.log(`Close stream frag - amount`);
                     reader.releaseLock();
                     controller.close();
                     return;
                   } else if (loaded >= 65536 * 5) {
                     // 327.680
-                    console.log(`Close stream frag - amount`);
+                    // console.log(`Close stream frag - amount`);
                     reader.releaseLock();
                     controller.close();
                     return;
@@ -567,7 +536,7 @@ class Audio extends Component {
                     (new Date() - startedStream) / 1000 >=
                     (params.sec || 5)
                   ) {
-                    console.log(`Close stream frag - time`);
+                    // console.log(`Close stream frag - time`);
                     reader.releaseLock();
                     controller.close();
                     return;
@@ -575,7 +544,7 @@ class Audio extends Component {
                 }
               }
               if (done) {
-                console.log(`Close stream done`);
+                // console.log(`Close stream done`);
                 that.setState({ playingFullMusic: true });
                 reader.releaseLock();
                 controller.close();
@@ -583,14 +552,14 @@ class Audio extends Component {
               }
 
               loaded += value.byteLength;
-              console.log(
-                {
-                  loaded,
-                  total,
-                  percent: `${((loaded * 100) / total).toFixed(2)}%`,
-                },
-                (new Date() - startedStream) / 1000
-              );
+              // console.log(
+              //   {
+              //     loaded,
+              //     total,
+              //     percent: `${((loaded * 100) / total).toFixed(2)}%`,
+              //   },
+              //   (new Date() - startedStream) / 1000
+              // );
               controller.enqueue(value);
 
               read();
@@ -702,14 +671,14 @@ class Audio extends Component {
               this.setState({ playing: true, isLoadingFullSong: false });
 
               this.setState({ currentSource }, () => {
-                console.log(
-                  "audio decoded and starting music from stream - full song loaded"
-                );
-                const offset = audioContext.currentTime - audioLoadOffsetTime;
-                console.log({
-                  offset,
-                  duration: currentSource.buffer.duration,
-                });
+                // console.log(
+                //   "audio decoded and starting music from stream - full song loaded"
+                // );
+                // const offset = audioContext.currentTime - audioLoadOffsetTime;
+                // console.log({
+                //   offset,
+                //   duration: currentSource.buffer.duration,
+                // });
 
                 this.setState({ audioContextCreatedTime });
               });
@@ -749,7 +718,7 @@ class Audio extends Component {
       musicIndex += 1;
     }
 
-    console.log({ musicIndex });
+    // console.log({ musicIndex });
 
     if (firstPlay) {
       this.setState({ isLoadingSong: true });
@@ -1228,37 +1197,44 @@ class Audio extends Component {
     //   trackerAnimatedInProgress,
     //   audioContext,
     //   currentSource,
-    //   sceneInProcess
-    // } = this.state
-    // canvas.addEventListener('mousedown', event => {
-    //   if (this.trackerIsInsideOfSmallCircle(event) || this.trackerIsOusideOfBigCircle(event)) {
-    //     return
+    //   sceneInProcess,
+    // } = this.state;
+    // canvas.addEventListener("mousedown", (event) => {
+    //   if (
+    //     this.trackerIsInsideOfSmallCircle(event) ||
+    //     this.trackerIsOusideOfBigCircle(event)
+    //   ) {
+    //     return;
     //   }
-    //   this.setState({ trackerPressButton: true, trackerPrevAngle: trackerAngle})
-    //   this.trackerStopAnimation()
-    //   this.setState({ trackerAnimatedInProgress: true})
-    //   this.trackerCalculateAngle(event)
-    // })
-    // window.addEventListener('mouseup', () => {
+    //   this.setState({
+    //     trackerPressButton: true,
+    //     trackerPrevAngle: trackerAngle,
+    //   });
+    //   this.trackerStopAnimation();
+    //   this.setState({ trackerAnimatedInProgress: true });
+    //   this.trackerCalculateAngle(event);
+    // });
+    // window.addEventListener("mouseup", () => {
     //   if (!trackerPressButton) {
-    //     return
+    //     return;
     //   }
     //   const id = setInterval(() => {
     //     if (!trackerAnimatedInProgress) {
-    //       this.setState({ trackerPressButton: false })
-    //       audioContext.currentTime = trackerAngle / (2 * Math.PI) * currentSource.buffer.duration
-    //       clearInterval(id)
+    //       this.setState({ trackerPressButton: false });
+    //       audioContext.currentTime =
+    //         (trackerAngle / (2 * Math.PI)) * currentSource.buffer.duration;
+    //       clearInterval(id);
     //     }
-    //   }, 100)
-    // })
-    // window.addEventListener('mousemove', event =>  {
+    //   }, 100);
+    // });
+    // window.addEventListener("mousemove", (event) => {
     //   if (trackerAnimatedInProgress) {
-    //     return
+    //     return;
     //   }
     //   if (trackerPressButton && sceneInProcess) {
-    //     this.trackerCalculateAngle(event)
+    //     this.trackerCalculateAngle(event);
     //   }
-    // })
+    // });
   }
 
   trackerDraw() {

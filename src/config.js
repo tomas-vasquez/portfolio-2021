@@ -160,7 +160,8 @@ module.exports = {
       musicTitle: " What music do I like?",
       musicText:
         "In my country, Bolivia, very beautiful music is heard ... but it is not well known in the world ... here are some songs:",
-      musicTextFooter: "music is an art that comes from the soul ...",
+      musicTextFooter:
+        'know more about my country <a style="color: rgb(var(--linkColor)); text-decoration: underline" target="blank"href="https://youtu.be/Hduq6PkxKIk">here<a/>.',
       tracks: [
         {
           name: "Ojitos de luna",
@@ -277,7 +278,7 @@ module.exports = {
         icon: "gmail",
       },
       {
-        href: "https://api.whatsapp.com/send?phone=59177649384",
+        href: "https://api.whatsapp.com/send?phone=59162014913",
         tooltip: "Send message",
         style: {
           backgroundColor: "#28a745",

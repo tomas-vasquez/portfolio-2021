@@ -1,5 +1,5 @@
 .Audio {
-  min-height: 90vh;
+  min-height: 400px;
   display: flex;
   flex-direction: column;
   font-size: calc(10px + 2vmin);
@@ -99,6 +99,13 @@
   height: 600px;
   display: flex;
   align-self: center;
+  transform: scale(0.85);
+
+  @media (--mediaMobile) {
+    & {
+      transform: scale(1);
+    }
+  }
 }
 
 .loader {
