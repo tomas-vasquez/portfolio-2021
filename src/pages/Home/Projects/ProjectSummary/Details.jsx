@@ -13,6 +13,8 @@ export default function Details({
   status,
   buttonText,
   buttonLink,
+  buttonText2,
+  buttonLink2,
 }) {
   return (
     <Col
@@ -64,7 +66,15 @@ export default function Details({
             `project-summary__button--${status}`
           )}
         >
-          <Button iconHoverShift href={buttonLink} iconEnd="arrowRight">
+          <Button iconHoverShift secondary href={buttonLink2} iconEnd="github">
+            {buttonText2}
+          </Button>
+          <Button
+            iconHoverShift
+            secondary
+            href={buttonLink}
+            iconEnd="arrowRight"
+          >
             {buttonText}
           </Button>
         </div>

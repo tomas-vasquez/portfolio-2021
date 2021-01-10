@@ -30,7 +30,13 @@ const NavbarIcons = () => (
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Icon className="navbar__nav-icon" icon={icon} />
+          <Icon
+            className="navbar__nav-icon"
+            style={{
+              fontSize: "x-large",
+            }}
+            icon={icon}
+          />
         </a>
       ))}
   </div>

@@ -174,9 +174,12 @@ class Audio extends Component {
   }
 
   componentDidMount() {
-    new Promise((resolve) => this.canvasConfigure(resolve)).then(() =>
-      this.showPlayer()
-    );
+    new Promise((resolve) => this.canvasConfigure(resolve)).then(() => {
+      this.showPlayer();
+      setTimeout(() => {
+        this.resumeSong();
+      }, 3000);
+    });
   }
 
   componentWillUnmount() {
@@ -937,7 +940,7 @@ class Audio extends Component {
     if (trackerEnabled || !hasStreamSupport) {
       canvasContext.save();
       canvasContext.beginPath();
-      canvasContext.fillStyle = "rgb(var(--rgbPrimary));";
+      canvasContext.fillStyle = "var(--colorTextLight)";
       canvasContext.lineWidth = 1;
       let x = trackerR / Math.sqrt(Math.pow(Math.tan(trackerAngle), 2) + 1);
       let y = Math.sqrt(trackerR * trackerR - x * x);
@@ -1013,12 +1016,20 @@ class Audio extends Component {
     const dy2 = parseInt(canvasCy + y2);
 
     const gradient = canvasContext.createLinearGradient(dx1, dy1, dx2, dy2);
-    gradient.addColorStop(0, "#61dafb");
-    gradient.addColorStop(0.6, "#61dafb");
-    gradient.addColorStop(1, "#F5F5F5");
+
+    if (document.getElementsByTagName("body")[0].classList.contains("dark")) {
+      gradient.addColorStop(0, "white");
+      gradient.addColorStop(0.5, "rgb(97, 218, 251)");
+      gradient.addColorStop(1, "rgb(97, 218, 251)");
+    } else {
+      gradient.addColorStop(0, "green");
+      gradient.addColorStop(0.5, "yellow");
+      gradient.addColorStop(1, "red");
+    }
+
     canvasContext.beginPath();
     canvasContext.strokeStyle = gradient;
-    canvasContext.lineWidth = 2;
+    canvasContext.lineWidth = 5;
     canvasContext.moveTo(canvasCx + x1, canvasCx + y1);
     canvasContext.lineTo(canvasCx + x2, canvasCx + y2);
     canvasContext.stroke();
@@ -1178,7 +1189,13 @@ class Audio extends Component {
 
     canvasContext.save();
     canvasContext.beginPath();
-    canvasContext.strokeStyle = "rgba(97, 218, 251, 0.5)";
+
+    if (document.getElementsByTagName("body")[0].classList.contains("dark")) {
+      canvasContext.strokeStyle = "rgba(97, 218, 251, 0.5)";
+    } else {
+      canvasContext.strokeStyle = "#bbb";
+    }
+
     canvasContext.lineWidth = 1;
 
     const offset = trackerLineWidth / 2;
@@ -1284,7 +1301,7 @@ class Audio extends Component {
     } = this.state;
 
     canvasContext.save();
-    canvasContext.strokeStyle = "rgb(var(--rgbPrimary));";
+    canvasContext.strokeStyle = "var(--colorTextLight)";
     canvasContext.beginPath();
     canvasContext.lineWidth = trackerLineWidth;
 
@@ -1530,7 +1547,7 @@ class Audio extends Component {
               <FastRewind
                 style={{
                   fontSize: "72px",
-                  color: "rgb(var(--rgbPrimary));",
+                  color: "var(--colorText)",
                   margin: "1rem",
                   cursor: "pointer",
                 }}
@@ -1547,7 +1564,7 @@ class Audio extends Component {
                 <PlayArrow
                   style={{
                     fontSize: "72px",
-                    color: "rgb(var(--rgbPrimary));",
+                    color: "var(--colorText)",
                     margin: "1rem",
                     cursor: "pointer",
                   }}
@@ -1557,7 +1574,7 @@ class Audio extends Component {
                 <Pause
                   style={{
                     fontSize: "72px",
-                    color: "rgb(var(--rgbPrimary));",
+                    color: "var(--colorText)",
                     margin: "1rem",
                     cursor: "pointer",
                   }}
@@ -1569,7 +1586,7 @@ class Audio extends Component {
               <FastForward
                 style={{
                   fontSize: "72px",
-                  color: "rgb(var(--rgbPrimary));",
+                  color: "var(--colorText)",
                   margin: "1rem",
                   cursor: "pointer",
                 }}

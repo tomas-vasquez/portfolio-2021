@@ -80,32 +80,13 @@
 
 .project-summary__model {
   --width: 100%;
-  --aspectRatio: 12 / 12;
+  --aspectRatio: 10 / 12;
 
   min-width: var(--width);
   padding-bottom: calc(var(--aspectRatio) * var(--width));
 }
 
-.project-summary__model--laptop {
-  top: 6%;
-
-  @media (--mediaDesktop) {
-    & {
-      --width: 150%;
-      --aspectRatio: 13 / 12;
-      left: -14%;
-    }
-  }
-
-  @media (--mediaTablet) {
-    & {
-      --width: 140%;
-
-      top: 10%;
-      left: 14%;
-    }
-  }
-}
+/*  */
 
 .project-summary__model--phone {
   --width: 116%;

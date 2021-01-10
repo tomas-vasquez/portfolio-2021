@@ -13,7 +13,7 @@ class appProvider extends Component {
         /**
          * Audio Context
          */
-        threadInUse: "worker", // 'main' or 'worker'
+        threadInUse: "main", // 'main' or 'worker'
         audioContext: null,
         analyser: null,
         gainNode: null,

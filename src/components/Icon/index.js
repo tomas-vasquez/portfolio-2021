@@ -1,5 +1,6 @@
 import React from "react";
 
+import { ReactSVG } from "react-svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faEnvelope,
@@ -35,7 +36,21 @@ import {
   faNodeJs,
   faWhatsapp,
   faFirefoxBrowser,
+  faDocker,
+  faHtml5,
 } from "@fortawesome/free-brands-svg-icons";
+
+import mongo from "assets/icons/mongo.png";
+import mysql from "assets/icons/mysql.png";
+import ionic from "assets/icons/ionic.png";
+import electron from "assets/icons/electron.png";
+
+export const icons = {
+  mongo: mongo,
+  mysql: mysql,
+  ionic: ionic,
+  electron: electron,
+};
 
 const getIcon = (icon) => {
   switch (icon) {
@@ -129,19 +144,27 @@ const getIcon = (icon) => {
     case "bootstrap":
       return faBootstrap;
 
+    case "html5":
+      return faHtml5;
+
+    case "docker":
+      return faDocker;
+
     default:
-      return faTimes;
+      return null;
   }
 };
 
 export default (props) => {
-  return (
-    <FontAwesomeIcon
-      {...props}
-      style={{
-        fontSize: "x-large",
-      }}
-      icon={getIcon(props.icon)}
-    />
-  );
+  const faIcon = getIcon(props.icon);
+  if (faIcon) {
+    return <FontAwesomeIcon {...props} icon={faIcon} />;
+  }
+
+  const icon = icons[props.icon];
+  if (icon) {
+    return <img src={icon} alt={""} width="50px" {...props} />;
+  }
+
+  return <FontAwesomeIcon {...props} icon={faTimes} />;
 };

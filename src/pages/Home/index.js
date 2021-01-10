@@ -81,6 +81,7 @@ const Home = () => {
       />
 
       <Music />
+      {/* <Skills /> */}
 
       <Projects id="projects" />
 

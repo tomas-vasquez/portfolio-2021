@@ -17,23 +17,13 @@ export default function Music() {
   });
 
   return (
-    <div
-      style={
-        {
-          // height: "100vh",
-        }
-      }
-      className="d-flex"
-    >
-      <Container className="m-auto">
+    <div ref={ref} className="d-flex section">
+      <Container className="m-auto mt-lg-5">
         <Row>
-          <Col xs="12" md="6" xl="7">
-            <App />
-          </Col>
-          <Col xs="12" md="6" xl="5" className="d-flex">
+          <Col xs="12" lg="6" xl="5" className="d-flex mt-5">
             <Transition in={inView} timeout={0}>
               {(status) => (
-                <div ref={ref} className="my-auto">
+                <div className="my-auto">
                   <div aria-hidden className="project-summary__index">
                     <Divider
                       notchWidth="64px"
@@ -67,12 +57,16 @@ export default function Music() {
                       "project-summary__description",
                       `project-summary__description--${status}`
                     )}
+                    size="l"
                   >
                     {about.music.musicText}
                   </Text>
                 </div>
               )}
             </Transition>
+          </Col>
+          <Col xs="12" lg="6" xl="7">
+            <App />
           </Col>
         </Row>
         <div

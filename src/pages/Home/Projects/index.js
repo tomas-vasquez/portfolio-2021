@@ -62,8 +62,10 @@ export default function Projects({ id }) {
             visible={true}
             title={site.title}
             description={site.description}
-            buttonText="View Project"
+            buttonText="View project"
             buttonLink={site.linkDemo}
+            buttonText2="View source"
+            buttonLink2={site.linkRepo}
             model={{
               type: "laptop",
               alt: "Smart Sparrow lesson builder",

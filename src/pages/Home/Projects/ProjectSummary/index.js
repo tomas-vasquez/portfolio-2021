@@ -19,6 +19,8 @@ const ProjectSummary = ({
   model,
   buttonText,
   buttonLink,
+  buttonText2,
+  buttonLink2,
   alternate,
   ...rest
 }) => {
@@ -34,6 +36,8 @@ const ProjectSummary = ({
       status={status}
       buttonText={buttonText}
       buttonLink={buttonLink}
+      buttonText2={buttonText2}
+      buttonLink2={buttonLink2}
     />
   );
   const renderPreview = (status) => (

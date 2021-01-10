@@ -39,6 +39,7 @@
     "react-helmet": "^6.1.0",
     "react-intersection-observer": "^8.31.0",
     "react-router-dom": "5.2.0",
+    "react-svg": "^11.2.2",
     "react-transition-group": "^4.4.1",
     "reactstrap": "^8.8.1",
     "three": "^0.123.0"

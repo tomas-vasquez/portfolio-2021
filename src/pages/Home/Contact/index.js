@@ -44,13 +44,15 @@ export default function Contact({ id }) {
                     )}
                     size="l"
                   >
-                    {contactMe.contactMeText}
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: contactMe.contactMeText,
+                      }}
+                    />
                   </Text>
                 </>
               )}
             </Transition>
-
-            {/* <div dangerouslySetInnerHTML={contactMe.contactMeText} /> */}
           </Col>
         </Row>
         <div className="d-flex">

@@ -2,13 +2,13 @@
   --buttonSize: calc((56 / 16) * 1rem);
   --buttonFontSize: calc((18 / 16) * 1rem);
   --buttonFocusWidth: 4px;
-  --buttonPadding: 0 var(--spaceL);
+  --buttonPadding: var(--spaceS);
   --buttonTextColor: rgb(var(--rgbBackground));
   --buttonTextVisibility: visible;
 
   outline: none;
   height: var(--buttonSize);
-  padding: var(--buttonPadding);
+  padding: 9px;
   cursor: pointer;
   transition-property: opacity, color, background;
   transition-duration: var(--durationS);
@@ -20,11 +20,12 @@
   z-index: 1;
 
   &:focus {
-    box-shadow: 0 0 0 4px rgb(var(--rgbBackground)), 0 0 0 8px rgb(var(--rgbText));
+    box-shadow: 0 0 0 4px rgb(var(--rgbBackground)),
+      0 0 0 8px rgb(var(--rgbText));
   }
 
   &::after {
-    content: '';
+    content: "";
     transition-property: opacity, color, background;
     transition-duration: var(--durationM);
     transition-timing-function: var(--bezierFastoutSlowin);
@@ -35,7 +36,13 @@
     bottom: 0;
     left: 0;
     z-index: -1;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% calc(100% - 8px),
+      calc(100% - 8px) 100%,
+      0 100%
+    );
   }
 
   &:active {
@@ -70,7 +77,7 @@
   height: calc((32 / 16) * 1rem);
 
   &::after {
-    content: '';
+    content: "";
     height: calc((32 / 16) * 1rem);
     position: absolute;
     top: 0;
