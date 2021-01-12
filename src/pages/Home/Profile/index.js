@@ -18,7 +18,6 @@ import "./Profile.css";
 import { about } from "config";
 import { Col, Container, Row } from "reactstrap";
 import { skills } from "config";
-import { ProjectSectionHeading } from "components/ProjectLayout";
 import Icon from "components/Icon";
 
 const ProfileText = ({ status }) => (
@@ -155,7 +154,7 @@ const Profile = ({ id, visible, sectionRef }) => {
               </Row>
             </Container>
 
-            <div className="d-flex">
+            <div className="d-flex pb-4">
               <div className="mx-auto d-flex">
                 <Transition in={visible} timeout={0}>
                   {() =>

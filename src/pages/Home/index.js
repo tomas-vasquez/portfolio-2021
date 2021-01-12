@@ -80,10 +80,9 @@ const Home = () => {
         id="details"
       />
 
-      <Music />
-      {/* <Skills /> */}
-
       <Projects id="projects" />
+
+      <Music />
 
       <Contact id="contact" />
       <Footer />

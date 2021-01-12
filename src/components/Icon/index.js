@@ -1,6 +1,5 @@
 import React from "react";
 
-import { ReactSVG } from "react-svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faEnvelope,
