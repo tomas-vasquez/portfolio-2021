@@ -56,7 +56,7 @@ const ProjectSummary = ({
 
   return (
     <div
-      className="section mt--5 "
+      className="section mb-5"
       as="section"
       aria-labelledby={titleId}
       ref={ref}

@@ -2,26 +2,11 @@ import React, { Component } from "react";
 import { appContext } from "context/app-context";
 import "./style.css";
 
-// import {
-//   PlayArrow,
-//   Pause,
-//   FastForward,
-//   FastRewind,
-//   VolumeMute,
-//   VolumeDown,
-//   VolumeUp,
-// } from "@material-ui/icons";
+import Icon from "components/Icon";
 
 class Audio extends Component {
   constructor(props) {
     super(props);
-
-    /**
-     * worker
-     */
-    this.audioWorker = new Worker("/audio.worker.js");
-    this.audioWorker.onmessage = (data) => this.handleWorkerCallback(data);
-
     /**
      * state
      */
@@ -174,6 +159,12 @@ class Audio extends Component {
   }
 
   componentDidMount() {
+    /**
+     * worker
+     */
+    this.audioWorker = new Worker("/audio.worker.js");
+    this.audioWorker.onmessage = (data) => this.handleWorkerCallback(data);
+
     new Promise((resolve) => this.canvasConfigure(resolve)).then(() => {
       this.showPlayer();
       setTimeout(() => {
@@ -1295,31 +1286,32 @@ class Audio extends Component {
   }
 
   trackerStartAnimation() {
-    const {
-      trackerAnimationCount,
-      trackerPrevAngle,
-      trackerAngle,
-    } = this.state;
-
-    let angle = trackerAngle;
-    const l = Math.abs(trackerAngle) - Math.abs(trackerPrevAngle);
-    let step = l / trackerAnimationCount,
-      i = 0;
-
-    const loop = () => {
-      console.log("");
-      angle += step;
-      if (++i === trackerAnimationCount) {
-        this.setState({
-          trackerAngle: angle,
-          trackerPrevAngle: angle,
-          trackerAnimatedInProgress: false,
-        });
-      } else {
-        const trackerAnimateId = setTimeout(loop, 20);
-        this.setState({ trackerAnimateId });
-      }
-    };
+    // const {
+    //   trackerAnimationCount,
+    //   trackerPrevAngle,
+    //   trackerAngle,
+    // } = this.state;
+    // let angle = trackerAngle;
+    // const l = Math.abs(trackerAngle) - Math.abs(trackerPrevAngle);
+    // let step = l / trackerAnimationCount,
+    //   i = 0;
+    // const loop = () => {
+    //   // console.log("");
+    //   angle += step;
+    //   if (++i === trackerAnimationCount) {
+    //     this.setState({
+    //       trackerAngle: angle,
+    //       trackerPrevAngle: angle,
+    //       trackerAnimatedInProgress: false,
+    //     });
+    //   } else {
+    //     this.setState({
+    //       trackerAnimateId: setTimeout(() => {
+    //         loop();
+    //       }, 50),
+    //     });
+    //   }
+    // };
   }
 
   trackerStopAnimation() {
@@ -1387,6 +1379,28 @@ class Audio extends Component {
     const { audioContext, audioLoadOffsetTime, currentSource } = this.state;
 
     let { timeControl } = this.state;
+
+    let rawTime = 0;
+
+    if (audioContext && audioContext.state !== "suspended" && currentSource) {
+      // When start time of the track from the middle for example, need add a startTime (offset) into calc
+      // let audioCurrentTime = audioContext.currentTime - audioLoadOffsetTime - startTime
+      let audioCurrentTime = audioContext.currentTime - audioLoadOffsetTime;
+
+      rawTime = parseInt(audioCurrentTime || 0);
+
+      const secondsInMin = 60;
+      let min = parseInt(rawTime / secondsInMin);
+      let seconds = rawTime - min * secondsInMin;
+      if (min < 10) {
+        min = `0${min}`;
+      }
+      if (seconds < 10) {
+        seconds = `0${seconds}`;
+      }
+      const time = `${min}:${seconds}`;
+      timeControl.textContent = time;
+    }
   }
 
   songContextHandler() {
@@ -1500,26 +1514,28 @@ class Audio extends Component {
           </div>
           <div className="controls">
             <div className="prev-song">
-              {/* <FastRewind
+              <Icon
+                icon="prev"
                 style={{
-                  fontSize: "72px",
+                  fontSize: "50px",
                   color: "var(--colorText)",
                   margin: "1rem",
                   cursor: "pointer",
                 }}
                 onClick={this.prevSong}
-              /> */}
+              />
             </div>
             <div className="pause-play-song">
-              {/* {this.state.isLoadingSong ? (
+              {this.state.isLoadingSong ? (
                 <div className="loader">
                   <div></div>
                   <div></div>
                 </div>
               ) : !this.state.playing ? (
-                <PlayArrow
+                <Icon
+                  icon="play"
                   style={{
-                    fontSize: "72px",
+                    fontSize: "50px",
                     color: "var(--colorText)",
                     margin: "1rem",
                     cursor: "pointer",
@@ -1527,47 +1543,52 @@ class Audio extends Component {
                   onClick={this.resumeSong}
                 />
               ) : (
-                <Pause
+                <Icon
+                  icon="pause"
                   style={{
-                    fontSize: "72px",
+                    fontSize: "50px",
                     color: "var(--colorText)",
                     margin: "1rem",
                     cursor: "pointer",
                   }}
                   onClick={this.suspendSong}
                 />
-              )} */}
+              )}
             </div>
             <div className="next-song">
-              {/* <FastForward
+              <Icon
+                icon="next"
                 style={{
-                  fontSize: "72px",
+                  fontSize: "50px",
                   color: "var(--colorText)",
                   margin: "1rem",
                   cursor: "pointer",
                 }}
                 onClick={this.nextSong}
-              /> */}
+              />
             </div>
           </div>
           <div className="song-footer">
             <div className="song-gain">
-              {/* {this.getVolume() === 0 ? (
-                <VolumeMute
+              {this.getVolume() === 0 ? (
+                <Icon
+                  icon="mute"
                   style={{ cursor: "pointer" }}
                   onClick={this.changeVolume}
                 />
               ) : this.getVolume() < 1 ? (
-                <VolumeDown
+                <Icon
+                  icon="volumeDown"
                   style={{ cursor: "pointer" }}
                   onClick={this.changeVolume}
                 />
               ) : (
-                <VolumeUp
+                <Icon
+                  icon="volumeUp"
                   style={{ cursor: "pointer" }}
                   onClick={this.changeVolume}
                 />
-              )} */}
+              )}
             </div>
             <div className="song-duration">
               {this.state.timeControl.textContent}

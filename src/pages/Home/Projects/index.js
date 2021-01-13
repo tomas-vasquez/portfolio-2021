@@ -19,7 +19,7 @@ export default function Projects({ id }) {
 
   return (
     <div id={id} ref={ref} className="py-5 project__section--light">
-      <Container className="mb-5">
+      <Container>
         <Row className="d-flex">
           <Col
             xs="12"
@@ -41,6 +41,7 @@ export default function Projects({ id }) {
                   </ProjectSectionHeading>
                   <Text
                     className={classNames(
+                      "mb-0",
                       "profile__description",
                       `profile__description--${status}`
                     )}

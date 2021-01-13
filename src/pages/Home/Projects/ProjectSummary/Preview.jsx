@@ -9,7 +9,7 @@ const laptopSizes = `(max-width: ${media.tablet}px) 80vw, 40vw`;
 
 export default function Preview({ model, index, status, isVisible }) {
   return (
-    <Col md="12" lg="6" xl="8" className="order-1 order-lg-0">
+    <Col md="12" lg="6" xl="8" className="mt-5 mt-md-0 order-1 order-lg-0">
       {model.type === "laptop" && (
         <>
           <Model

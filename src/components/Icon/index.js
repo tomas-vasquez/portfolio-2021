@@ -19,6 +19,13 @@ import {
   faBars,
   faArrowRight,
   faFilePdf,
+  faForward,
+  faBackward,
+  faVolumeMute,
+  faVolumeUp,
+  faVolumeDown,
+  faPlay,
+  faPause,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faGithub,
@@ -148,6 +155,27 @@ const getIcon = (icon) => {
 
     case "docker":
       return faDocker;
+
+    case "next":
+      return faForward;
+
+    case "prev":
+      return faBackward;
+
+    case "play":
+      return faPlay;
+
+    case "pause":
+      return faPause;
+
+    case "mute":
+      return faVolumeMute;
+
+    case "volumeUp":
+      return faVolumeUp;
+
+    case "volumeDown":
+      return faVolumeDown;
 
     default:
       return null;

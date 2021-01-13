@@ -17,7 +17,7 @@ export default function Music() {
   });
 
   return (
-    <div ref={ref} className="d-flex section">
+    <div ref={ref} className="d-flex section ">
       <Container className="m-auto mt-lg-5">
         <Row>
           <Col xs="12" lg="6" xl="5" className="d-flex mt-5">
