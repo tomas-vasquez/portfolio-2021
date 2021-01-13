@@ -11,7 +11,7 @@ import "./index.css";
 
 import Projects from "./Projects";
 import Contact from "./Contact";
-// import Music from "./Music";
+import Music from "./Music";
 
 const Home = () => {
   const [visibleSections, setVisibleSections] = useState([]);
@@ -82,7 +82,7 @@ const Home = () => {
 
       <Projects id="projects" />
 
-      {/* <Music /> */}
+      <Music />
 
       <Contact id="contact" />
       <Footer />

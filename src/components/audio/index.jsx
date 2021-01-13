@@ -2,15 +2,15 @@ import React, { Component } from "react";
 import { appContext } from "context/app-context";
 import "./style.css";
 
-import {
-  PlayArrow,
-  Pause,
-  FastForward,
-  FastRewind,
-  VolumeMute,
-  VolumeDown,
-  VolumeUp,
-} from "@material-ui/icons";
+// import {
+//   PlayArrow,
+//   Pause,
+//   FastForward,
+//   FastRewind,
+//   VolumeMute,
+//   VolumeDown,
+//   VolumeUp,
+// } from "@material-ui/icons";
 
 class Audio extends Component {
   constructor(props) {
@@ -1306,7 +1306,8 @@ class Audio extends Component {
     let step = l / trackerAnimationCount,
       i = 0;
 
-    const calc = () => {
+    const loop = () => {
+      console.log("");
       angle += step;
       if (++i === trackerAnimationCount) {
         this.setState({
@@ -1315,7 +1316,8 @@ class Audio extends Component {
           trackerAnimatedInProgress: false,
         });
       } else {
-        this.setState({ trackerAnimateId: setTimeout(calc, 20) });
+        const trackerAnimateId = setTimeout(loop, 20);
+        this.setState({ trackerAnimateId });
       }
     };
   }
@@ -1385,28 +1387,6 @@ class Audio extends Component {
     const { audioContext, audioLoadOffsetTime, currentSource } = this.state;
 
     let { timeControl } = this.state;
-
-    let rawTime = 0;
-
-    if (audioContext && audioContext.state !== "suspended" && currentSource) {
-      // When start time of the track from the middle for example, need add a startTime (offset) into calc
-      // let audioCurrentTime = audioContext.currentTime - audioLoadOffsetTime - startTime
-      let audioCurrentTime = audioContext.currentTime - audioLoadOffsetTime;
-
-      rawTime = parseInt(audioCurrentTime || 0);
-
-      const secondsInMin = 60;
-      let min = parseInt(rawTime / secondsInMin);
-      let seconds = rawTime - min * secondsInMin;
-      if (min < 10) {
-        min = `0${min}`;
-      }
-      if (seconds < 10) {
-        seconds = `0${seconds}`;
-      }
-      const time = `${min}:${seconds}`;
-      timeControl.textContent = time;
-    }
   }
 
   songContextHandler() {
@@ -1520,7 +1500,7 @@ class Audio extends Component {
           </div>
           <div className="controls">
             <div className="prev-song">
-              <FastRewind
+              {/* <FastRewind
                 style={{
                   fontSize: "72px",
                   color: "var(--colorText)",
@@ -1528,10 +1508,10 @@ class Audio extends Component {
                   cursor: "pointer",
                 }}
                 onClick={this.prevSong}
-              />
+              /> */}
             </div>
             <div className="pause-play-song">
-              {this.state.isLoadingSong ? (
+              {/* {this.state.isLoadingSong ? (
                 <div className="loader">
                   <div></div>
                   <div></div>
@@ -1556,10 +1536,10 @@ class Audio extends Component {
                   }}
                   onClick={this.suspendSong}
                 />
-              )}
+              )} */}
             </div>
             <div className="next-song">
-              <FastForward
+              {/* <FastForward
                 style={{
                   fontSize: "72px",
                   color: "var(--colorText)",
@@ -1567,12 +1547,12 @@ class Audio extends Component {
                   cursor: "pointer",
                 }}
                 onClick={this.nextSong}
-              />
+              /> */}
             </div>
           </div>
           <div className="song-footer">
             <div className="song-gain">
-              {this.getVolume() === 0 ? (
+              {/* {this.getVolume() === 0 ? (
                 <VolumeMute
                   style={{ cursor: "pointer" }}
                   onClick={this.changeVolume}
@@ -1587,7 +1567,7 @@ class Audio extends Component {
                   style={{ cursor: "pointer" }}
                   onClick={this.changeVolume}
                 />
-              )}
+              )} */}
             </div>
             <div className="song-duration">
               {this.state.timeControl.textContent}
