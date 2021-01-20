@@ -1,6 +1,6 @@
 module.exports = {
   banner: {
-    FirstName: "Tomas",
+    FirstName: "Tomás",
     MiddleName: "",
     LastName: "Vásquez",
     socialLinks: [
@@ -81,7 +81,7 @@ module.exports = {
         title: 'Open Academy "CRA"',
         description:
           "My first project, an online education platform using React, Express and MongoDB",
-        image: process.env.PUBLIC_URL + "/projects/capture (7).jpg",
+        image: process.env.PUBLIC_URL + "/projects/capture (4).jpg",
         linkRepo: "https://github.com/tomasdetloging/OpenAcademy-ReactApp",
         linkDemo: "https://open-academy-react-app.vercel.app/",
       },
@@ -110,6 +110,7 @@ module.exports = {
       },
       {
         title: "Particle image example",
+        description: "Basic animation using particle-js and react.",
         image: process.env.PUBLIC_URL + "/projects/capture (3).jpg",
         linkRepo: "https://github.com/tomasdetloging/",
         linkDemo: "https://particle-effect.vercel.app/",
@@ -146,7 +147,7 @@ module.exports = {
     aboutHeading: "about me",
     aboutTitle: "Who I am?",
     aboutDescription: [
-      "I am Tomas Vasquez, I am a web developer from Bolivia, which is a beautiful country in Latin America.",
+      "I am Tomás Vasquez, I am a web developer from Bolivia, which is a beautiful country in Latin America.",
       "Began my academic training at the university studying Informatics Engineering and later studying self-taught in online education platforms, first in EDteam and then in Platzi.",
       "I am currently looking to insert working in the technology area. I am very self-taught and I constantly look for new challenges that challenge my abilities and help me grow.",
     ],

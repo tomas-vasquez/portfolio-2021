@@ -45,7 +45,6 @@ export default function Projects({ id }) {
                       "profile__description",
                       `profile__description--${status}`
                     )}
-                    size="l"
                   >
                     {portafolio.portfolioText}
                   </Text>

@@ -111,8 +111,8 @@
 .loader {
   display: inline-block;
   position: relative;
-  width: 64px;
-  height: 64px;
+  width: 55px;
+  height: 55px;
 }
 
 .loader div {

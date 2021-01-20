@@ -59,10 +59,10 @@ const Home = () => {
   return (
     <div className="home">
       <Helmet>
-        <title>Tomas Vasquez</title>
+        <title>Tomás Vasquez</title>
         <meta
           name="description"
-          content="developer portfolio of Tomas Vasquez"
+          content="developer portfolio of Tomás Vasquez"
         />
         <link rel="prefetch" href={iphone11} as="fetch" crossorigin="" />
         <link rel="prefetch" href={macbookPro} as="fetch" crossorigin="" />
@@ -79,10 +79,9 @@ const Home = () => {
         visible={visibleSections.includes(details.current)}
         id="details"
       />
+      <Music />
 
       <Projects id="projects" />
-
-      <Music />
 
       <Contact id="contact" />
       <Footer />
