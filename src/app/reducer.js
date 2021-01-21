@@ -1,19 +1,19 @@
 export const initialState = {
   menuOpen: false,
-  theme: 'dark',
+  theme: "dark",
 };
 
 export function reducer(state, action) {
   const { type, value } = action;
 
   switch (type) {
-    case 'setTheme':
+    case "setTheme":
       return { ...state, theme: value };
-    case 'toggleTheme': {
-      const newThemeId = state.theme === 'dark' ? 'light' : 'dark';
+    case "toggleTheme": {
+      const newThemeId = state.theme === "dark" ? "light" : "dark";
       return { ...state, theme: newThemeId };
     }
-    case 'toggleMenu':
+    case "toggleMenu":
       return { ...state, menuOpen: !state.menuOpen };
     default:
       throw new Error();

@@ -66,7 +66,7 @@ export default function Details({
           </Button>
           <Button
             iconHoverShift
-            secondary
+            // secondary
             href={buttonLink}
             iconEnd="arrowRight"
           >
